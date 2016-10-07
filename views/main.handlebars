@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>loadMapSyncHTML</title>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+        <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?branch=release'></script>
+        <script type='text/javascript'>
+            function loadMapScenario() {
+                var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+                    credentials: 'AnRbHuqz4P2pzMusE4Xh_nsuuxm3VeURqW8GQu_AfnGZZg2_Ww0pT4SNWATrsKXR'
+                });
+                
+            }
+        </script>
+    </head>
+    <body onload='loadMapScenario();'>
+        <div id='printoutPanel'></div>
+        
+        <div id='myMap' style='width: 100vw; height: 100vh;'></div>
+    </body>
+</html>
