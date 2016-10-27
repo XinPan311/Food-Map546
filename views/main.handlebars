@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>loadMapSyncHTML</title>
-        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
-        <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?branch=release'></script>
-        <script type='text/javascript'>
-            function loadMapScenario() {
-                var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
-                    credentials: 'AnRbHuqz4P2pzMusE4Xh_nsuuxm3VeURqW8GQu_AfnGZZg2_Ww0pT4SNWATrsKXR'
-                });
-                
-            }
-        </script>
-    </head>
-    <body onload='loadMapScenario();'>
-        <div id='printoutPanel'></div>
-        
-        <div id='myMap' style='width: 100vw; height: 100vh;'></div>
-    </body>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Fullscreen HTML5 Page Background Video</title>
+    <link rel="stylesheet" href="public/stylesheets/style.css"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div class="center">
+    <ul class="nav-ul">
+        <li><div class="home"><a href="/">Home</a></div></li>
+        <li><div class="map"><a href="/maps">Map</a></div></li>
+        <li><div class="bbs"><a href="/bbs">BBS</a></div></li>
+        <li><div class="about"><a href="/about">About</a></div></li>
+      </ul>
+    </div>
+   <main>
+        {{{body}}}
+    </main>
+  </body>
 </html>
