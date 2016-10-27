@@ -19,4 +19,4 @@ let businessSchema = new mongoose.Schema({
     location : Object,
 });
 
-mongoose.model('Business', businessSchema);
+ mongoose.model('Business', businessSchema);

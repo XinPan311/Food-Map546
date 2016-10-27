@@ -1,6 +1,6 @@
 //Food Map Database Model
 //Contributor: Haotian Huang
-
+"use strict"
 const Yelp = require('yelp-api-v3');// npm install yelp-api-v3 --save
 require('../models/yelp');
 const mongoose = require('mongoose');
