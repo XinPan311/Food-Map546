@@ -10,6 +10,13 @@ mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/yelp');  
 const Business = mongoose.model('Business');
 const BBS = mongoose.model('BBS');
+var post = new BBS({title: 'haha', content: 'little star, little star, little star'});
+post.save(function(err){
+    if(err)
+        console.log(err);
+    else
+        console.log(post);
+});
 // https://www.yelp.com/developers/documentation/v3
 let yelp = new Yelp({
     app_id: '91u3VSKZtIP4wqhR7tREuQ',
