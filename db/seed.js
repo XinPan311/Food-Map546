@@ -3,12 +3,13 @@
 
 const Yelp = require('yelp-api-v3');// npm install yelp-api-v3 --save
 require('../models/yelp');
+require('../models/bbs.js');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/yelp');  
 const Business = mongoose.model('Business');
-
+const BBS = mongoose.model('BBS');
 // https://www.yelp.com/developers/documentation/v3
 let yelp = new Yelp({
     app_id: '91u3VSKZtIP4wqhR7tREuQ',
