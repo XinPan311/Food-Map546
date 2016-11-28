@@ -4,8 +4,7 @@
 const Yelp = require("yelp-api-v3");// npm install yelp-api-v3 --save
 require("../models/yelp");
 const mongoose = require("mongoose");
-mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost:27017/yelp");// Connect to MongoDB
+require('../config');
 const Business = mongoose.model("Business");
 
 savetodb = (jsonBussObj) => {

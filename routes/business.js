@@ -7,7 +7,7 @@ const router = express.Router();
 //mongoose -> dataBase
 const mongoose = require('mongoose');
 require('../models/yelp');
-mongoose.createConnection('mongodb://localhost:27017/yelp');
+require('../config');
 const Business = mongoose.model('Business');
 
 router.get("/", (req, res) => {

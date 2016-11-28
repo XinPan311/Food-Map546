@@ -5,8 +5,7 @@ const router = express.Router();
 
 const mongoose = require('mongoose');
 //const BBS = require('../models/bbs.js');
-mongoose.createConnection('mongodb://localhost:27017/yelp');
-
+require('../config');
 const BBS = mongoose.model('BBS');
 router.get( '/', function(req, res, next){
   res.render("index/bbs");
