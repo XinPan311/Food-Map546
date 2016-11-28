@@ -1,10 +1,12 @@
+"use strict"
 require('../models/bbs.js');
 const express = require('express');
 const router = express.Router();
 
 const mongoose = require('mongoose');
 //const BBS = require('../models/bbs.js');
-mongoose.connect('mongodb://localhost:27017/yelp');
+mongoose.createConnection('mongodb://localhost:27017/yelp');
+
 const BBS = mongoose.model('BBS');
 router.get( '/', function(req, res, next){
   res.render("index/bbs");

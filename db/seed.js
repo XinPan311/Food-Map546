@@ -7,7 +7,8 @@ require('../models/bbs.js');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/yelp');  
+mongoose.createConnection('mongodb://localhost:27017/yelp');
+
 const Business = mongoose.model('Business');
 const BBS = mongoose.model('BBS');
 var post = new BBS({title: 'haha', content: 'little star, little star, little star'});

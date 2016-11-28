@@ -1,12 +1,13 @@
 /**
  * Created by XIN on 2016/10/27.
  */
+"use strict"
 const express = require('express');
 const router = express.Router();
 //mongoose -> dataBase
 const mongoose = require('mongoose');
 require('../models/yelp');
-mongoose.connect('mongodb://localhost:27017/yelp');
+mongoose.createConnection('mongodb://localhost:27017/yelp');
 const Business = mongoose.model('Business');
 
 router.get("/", (req, res) => {

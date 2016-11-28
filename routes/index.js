@@ -1,3 +1,4 @@
+"use strict"
 const mapRoute = require('./map');
 const aboutRoute = require('./about');
 const bbsRoute = require('./bbs');
