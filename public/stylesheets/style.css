@@ -11,6 +11,13 @@ body {
   padding: 10px;
  }
 
+  .right  {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+
   #center1 {
   margin: auto;
   width: 20%;

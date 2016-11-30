@@ -1,13 +1,20 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+
 const app = express();
 const path = require('path');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 const static = express.static(__dirname + '/public');
-
+const flash    = require('connect-flash');
+const morgan       = require('morgan');
 const configRoutes = require("./routes");
 
 const exphbs = require('express-handlebars');
+const passport = require('passport');
 
+require('./config')
+require('./passport')(passport);
 const Handlebars = require('handlebars');
 
 const handlebarsInstance = exphbs.create({
@@ -40,16 +47,25 @@ const rewriteUnsupportedBrowserMethods = (req, res, next) => {
     next();
 };
 
+app.use(morgan('dev'));
 app.use("/public", static);
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(rewriteUnsupportedBrowserMethods);
+app.use(session({
+    secret: 'ilovescotchscotchyscotchscotch', // session secret
+    resave: true,
+    saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); 
 
 app.engine('handlebars', handlebarsInstance.engine);
 app.set('view engine', 'handlebars');
-
+// require('./routes/index.js')(app, passport);
 app.set('views', path.join(__dirname, 'views'));
-
 configRoutes(app);
 
 app.listen(3000, () => {

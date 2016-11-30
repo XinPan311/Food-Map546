@@ -2,6 +2,7 @@
 const mapRoute = require('./map');
 const aboutRoute = require('./about');
 const bbsRoute = require('./bbs');
+const authRoute = require('./auth');
 const businessRoute = require('./business');
 
 const exportMethod = (app) => {
@@ -9,6 +10,7 @@ const exportMethod = (app) => {
 	app.use('/about', aboutRoute);
 	app.use('/bbs', bbsRoute);
 	app.use('/business', businessRoute);
+	app.use('/auth', authRoute);
 
 	app.use("/", (req, res) => {
         res.render("index/index");

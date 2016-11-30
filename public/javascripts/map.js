@@ -55,14 +55,17 @@ function loadMapScenario() {
             var phone = 'phone: ' + data[i].phone + '\n';
             var price = 'price: ' + data[i].price + '\n';
             var rating = 'rating: ' + data[i].rating + '\n';
-            var image_url = 'image: ' + data[i].url +'\n';
+            var link = 'link: ' + '<a href="' + data[i].url + '" >' + data[i].url + '</a>';
+            var share = 'Share this restaurant with others? ' + 
+                        '<a href="' + '/bbs' + '" >' + "Share this restaurant..." + '</a>';
 
             description = "<ul>" + 
                           "<li>" + category + "</li>" + 
                           "<li>" + phone + "</li>" + 
                           "<li>" + price + "</li>" + 
                           "<li>" + rating + "</li>" + 
-                          "<li>" + image_url + "</li>" +
+                          "<li>" + link + "</li>" +
+                          "<li>" + share + "</li>" +
                           "</ul>"; 
 
         //Store some metadata with the pushpin

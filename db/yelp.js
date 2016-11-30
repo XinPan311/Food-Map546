@@ -3,9 +3,31 @@
 
 const Yelp = require("yelp-api-v3");// npm install yelp-api-v3 --save
 require("../models/yelp");
+require("../models/bbs");
+require("../models/user");
 const mongoose = require("mongoose");
 require('../config');
 const Business = mongoose.model("Business");
+const User = mongoose.model("User");
+const BBS = mongoose.model("BBS");
+
+let userTest = new User();
+userTest.username = "test name";
+userTest.password = "123"
+userTest.save(function(err) {
+                if (err) {
+                    return Promise.reject("");
+                };
+            });
+
+let bbsTest = new BBS();
+bbsTest.title = "Test Database";
+bbsTest.content = "This is to test our database";
+bbsTest.save(function(err) {
+                if (err) {
+                    return Promise.reject("");
+                };
+            });
 
 savetodb = (jsonBussObj) => {
     if (jsonBussObj) {
