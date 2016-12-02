@@ -1,31 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>BBS</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 38%;
+            color: white;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+            color: white;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+
+
+    <title>BBS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <a href="/auth/logout">sign out</a>
 <body>
-  <br><br>
+
+<br>
+<br>
 <button id="post-button" class="center-create-post-button">Create New Post</button>
-<div class="container" id="toggle-form" style="display:none;">
-  <div id="center1">
-    <br><br>
-  <div>
-    <h2 id="white-color">Create new posts:</h2>
-  </div>
-  <form>
-    <label for="fname" id="white-color">Title:</label><br>
-    <input type="text" id="fname" name="firstname">
-    <br>
-    <label for="lname" id="white-color">Content:</label><br>
-    <textarea rows="6" cols="30" id="lname" name="lastname"></textarea>
-    <br>
-    <input type="submit" value="Submit">
-  </form>
+<div>
+    {{# if BBSList}}
+        <table class="table table-striped" id="BBSList" bgcolor="black">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Content</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {{#each BBSList}}
+                <tr>
+                    <td>{{title}}</td>
+                    <td>{{content}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+
+
+    {{/if}}
 </div>
+<div class="container" id="toggle-form" style="display:none;">
+    <div id="center1">
+        <div>
+            <h2 id="white-color">Create new posts:</h2>
+        </div>
+        <form class="form-group"  method="post">
+            <div class="form-group">
+                <label for="title" >Title:</label><br>
+                <input type="text" class="form-group" id="title" name="title" placeholder="New Title" value="{{title}}">
+                <br>
+            </div>
+            <div>
+                <label for="content">Content:</label><br>
+                <textarea rows="6" cols="30" id="content" name="content">{{content}}</textarea>
+                <br>
+            </div>
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
 </div>
 </body>
 <script type="text/javascript" src="public/javascripts/toggle.js"></script>

@@ -6,8 +6,8 @@ const path = require('path');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const static = express.static(__dirname + '/public');
-const flash    = require('connect-flash');
-const morgan       = require('morgan');
+const flash = require('connect-flash');
+const morgan = require('morgan');
 const configRoutes = require("./routes");
 
 const exphbs = require('express-handlebars');
@@ -28,7 +28,7 @@ const handlebarsInstance = exphbs.create({
             return new Handlebars.SafeString(JSON.stringify(obj));
         }
     },
-    layoutsDir:'views',
+    layoutsDir: 'views',
     partialsDir: [
         'views/partials/'
     ]
@@ -51,7 +51,7 @@ app.use(morgan('dev'));
 app.use("/public", static);
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(rewriteUnsupportedBrowserMethods);
 app.use(session({
     secret: 'ilovescotchscotchyscotchscotch', // session secret
@@ -60,7 +60,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
-app.use(flash()); 
+app.use(flash());
 
 app.engine('handlebars', handlebarsInstance.engine);
 app.set('view engine', 'handlebars');

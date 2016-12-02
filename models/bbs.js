@@ -9,8 +9,9 @@ const Schema = mongoose.Schema;
 // Defining a schema for BBS
 
 var BBSSchema = new mongoose.Schema({
-    title : String,
-    content : String
+    title: String,
+    content: String
+
 });
 
 var BBS = mongoose.model('BBS', BBSSchema);
