@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     background: black;
+    padding-top: 80px;
 }
 
 .center {
@@ -11,6 +12,22 @@ body {
     padding: 10px;
 }
 
+table {
+    border-collapse: collapse;
+    width: 38%;
+    color: white;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    color: white;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
 
 .right {
     position: absolute;
