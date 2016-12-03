@@ -17,30 +17,6 @@ router.get('/', isLoggedIn, function (req, res, next) {
     }) ;
 });
 
-/* GET /bbs listing*/
-// router.get('/api', function (req, res, next) {
-//     BBS.find(function (err, bbs) {
-//         if (err) return next(err);
-//         res.json(bbs);
-//     });
-// });
-
-/* GET /bbs/title */
-// router.get('/api/:title', function (req, res, next) {
-//     console.log(typeof req.params.title);
-//     BBS.find({'title': req.params.title}, function (err, docs) {
-//         res.json(docs);
-//     })
-// });
-
-// /* GET /bbs/id */
-// router.get('/api/:id', function (req, res, next) {
-//     BBS.findById(req.params.id, function (err, post) {
-//         if (err) return next(err);
-//         res.json(post);
-//     });
-// });
-
 /* POST /bbs */
 router.post('/', function (req, res, next) {
 
