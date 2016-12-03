@@ -6,34 +6,34 @@ require('../passport');
 
 router.get("/login/:login", (req, res) => {
     if (req.params.login == 'login' || req.params.login == 'map' || req.params.login == 'bbs')
-        res.render('login/login', {param: req.params.login});
+        res.render('login/login', { message: req.flash('loginMessage'), param: req.params.login });
 });
 
 router.get("/signup", (req, res) => {
-    res.render('login/signup');
+    res.render('login/signup', { message: req.flash('signupMessage')});
 });
 
 router.post('/login/login', passport.authenticate('local-login', {
     successRedirect: '/', // redirect to the secure profile section
-    failureRedirect: '/about', // redirect back to the signup page if there is an error
+    failureRedirect: '/auth/login/login', // redirect back to the signup page if there is an error
     failureFlash: true // allow flash messages
 }));
 
 router.post('/login/map', passport.authenticate('local-login', {
-    successRedirect: '/map', // redirect to the secure profile section
-    failureRedirect: '/about', // redirect back to the signup page if there is an error
+    successRedirect: '/maps', // redirect to the secure profile section
+    failureRedirect: '/auth/login/map', // redirect back to the signup page if there is an error
     failureFlash: true // allow flash messages
 }));
 
 router.post('/login/bbs', passport.authenticate('local-login', {
     successRedirect: '/bbs', // redirect to the secure profile section
-    failureRedirect: '/about', // redirect back to the signup page if there is an error
+    failureRedirect: '/auth/login/bbs', // redirect back to the signup page if there is an error
     failureFlash: true // allow flash messages
 }));
 
 router.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: '/auth/login', // redirect to the secure profile section
-    failureRedirect: '/about', // redirect back to the signup page if there is an error
+    successRedirect: '/auth/login/login', // redirect to the secure profile section
+    failureRedirect: '/auth/signup', // redirect back to the signup page if there is an error
     failureFlash: true // allow flash messages
 }));
 
