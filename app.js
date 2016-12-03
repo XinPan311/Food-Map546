@@ -13,7 +13,6 @@ const configRoutes = require("./routes");
 const exphbs = require('express-handlebars');
 const passport = require('passport');
 
-
 require('./config')
 require('./passport')(passport);
 const Handlebars = require('handlebars');
