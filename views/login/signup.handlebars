@@ -16,6 +16,9 @@
 
         <h1><span class="fa fa-sign-in"></span> Signup</h1>
 
+        {{#if message.length}}
+            <div class="alert alert-danger"> {{ message }} </div>
+        {{/if}}
 
         <!-- LOGIN FORM -->
         <form action="/auth/signup" method="post">
@@ -33,7 +36,7 @@
 
         <hr>
 
-        <p>Already have an account? <a href="/login">Login</a></p>
+        <p>Already have an account? <a href="/auth/login/login">Login</a></p>
         <p>Or go <a href="/">home</a>.</p>
 
     </div>
