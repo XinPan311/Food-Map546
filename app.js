@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 
+//Init App
 const app = express();
 const path = require('path');
 const session = require('express-session');
@@ -49,22 +50,32 @@ const rewriteUnsupportedBrowserMethods = (req, res, next) => {
 
 app.use(morgan('dev'));
 app.use("/public", static);
+
+//BodyParser Middleware
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
+
 app.use(rewriteUnsupportedBrowserMethods);
+
+//Express Session
 app.use(session({
     secret: 'ilovescotchscotchyscotchscotch', // session secret
     resave: true,
     saveUninitialized: true
 }));
+
+//Passport Init
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
+
+//Connect Flash
 app.use(flash());
 
-app.engine('handlebars', handlebarsInstance.engine);
+//View Engine
 app.set('view engine', 'handlebars');
 // require('./routes/index.js')(app, passport);
+app.engine('handlebars', handlebarsInstance.engine);
 app.set('views', path.join(__dirname, 'views'));
 configRoutes(app);
 
