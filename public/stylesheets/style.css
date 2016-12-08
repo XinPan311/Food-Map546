@@ -6,9 +6,9 @@ body {
 }
 
 .center {
-    margin: auto;
+    margin: -50px 400px;
     width: 60%;
-    border: 2px solid yellow;
+    //border: 2px solid yellow;
     padding: 10px;
 }
 
@@ -131,7 +131,7 @@ video {
     color: white;
     padding: 2rem;
     width: 33%;
-    margin: 2rem;
+    margin: 3cm 20cm 10cm 3cm ;
     float: right;
     font-size: 1.2rem;
 }
@@ -146,7 +146,7 @@ video {
     color: white;
     padding: 2rem;
     width: 13%;
-    margin: 2rem;
+    margin: 0cm 3cm 3cm 15cm;
     float: left;
     font-size: 1.2rem;
 }
