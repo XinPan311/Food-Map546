@@ -73,6 +73,7 @@ function loadMapScenario() {
                 title: name,
                 description: description
             };
+            
             Microsoft.Maps.Events.addHandler(pushpin, 'click', function (args) {
                 infobox.setOptions({
                     location: args.target.getLocation(),

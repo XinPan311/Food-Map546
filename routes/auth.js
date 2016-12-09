@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 require('../passport');
+const xss = require('xss');
 
 router.get("/login/:login", (req, res) => {
     if (req.params.login == 'login' || req.params.login == 'map' || req.params.login == 'bbs')
@@ -17,25 +18,33 @@ router.post('/login/login', passport.authenticate('local-login', {
     successRedirect: '/', // redirect to the secure profile section
     failureRedirect: '/auth/login/login', // redirect back to the signup page if there is an error
     failureFlash: true // allow flash messages
-}));
+}), (req, res) => {
+    res.render({ success: true, message: xss(request.body.description) });
+});
 
 router.post('/login/map', passport.authenticate('local-login', {
     successRedirect: '/maps', // redirect to the secure profile section
     failureRedirect: '/auth/login/map', // redirect back to the signup page if there is an error
     failureFlash: true // allow flash messages
-}));
+}), (req, res) => {
+    res.render({ success: true, message: xss(request.body.description) });
+});
 
 router.post('/login/bbs', passport.authenticate('local-login', {
     successRedirect: '/bbs', // redirect to the secure profile section
     failureRedirect: '/auth/login/bbs', // redirect back to the signup page if there is an error
     failureFlash: true // allow flash messages
-}));
+}), (req, res) => {
+    res.render({ success: true, message: xss(request.body.description) });
+});
 
 router.post('/signup', passport.authenticate('local-signup', {
     successRedirect: '/auth/login/login', // redirect to the secure profile section
     failureRedirect: '/auth/signup', // redirect back to the signup page if there is an error
     failureFlash: true // allow flash messages
-}));
+}), (req, res) => {
+    res.render({ success: true, message: xss(request.body.description) });
+});
 
 router.get('/logout', function (req, res) {
     req.logout();

@@ -2,6 +2,7 @@
 require('../models/bbs.js');
 const express = require('express');
 const router = express.Router();
+const xss = require('xss');
 
 const mongoose = require('mongoose');
 // const BBSModel = require('../models/bbs');
@@ -35,6 +36,8 @@ router.post('/', function (req, res, next) {
         res.redirect('/bbs');
 
     });
+
+    res.render({ success: true, message: xss(request.body.description) });
 
 });
 
