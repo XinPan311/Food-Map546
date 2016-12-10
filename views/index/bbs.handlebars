@@ -14,6 +14,28 @@
 <br>
 <br>
 <button id="post-button" class="center-create-post-button">Create New Post</button>
+<div class="container" id="toggle-form" style="display:none;">
+    <div id="center1">
+        <div>
+            <h2 id="white-color">Create new posts:</h2>
+        </div>
+        <form class="form-group"  method="post">
+            <div class="form-group">
+                <label for="title" >Title:</label><br>
+                <input type="text" class="form-group" id="title" name="title" placeholder="New Title" value="{{title}}">
+                <br>
+            </div>
+            <div>
+                <label for="content">Content:</label><br>
+                <textarea rows="6" cols="30" id="content" name="content">{{content}}</textarea>
+                <br>
+            </div>
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</div>
 <div>
     {{# if BBSList}}
         <table class="table table-striped" id="BBSList" bgcolor="black">
@@ -36,28 +58,6 @@
 
 
     {{/if}}
-</div>
-<div class="container" id="toggle-form" style="display:none;">
-    <div id="center1">
-        <div>
-            <h2 id="white-color">Create new posts:</h2>
-        </div>
-        <form class="form-group"  method="post">
-            <div class="form-group">
-                <label for="title" >Title:</label><br>
-                <input type="text" class="form-group" id="title" name="title" placeholder="New Title" value="{{title}}">
-                <br>
-            </div>
-            <div>
-                <label for="content">Content:</label><br>
-                <textarea rows="6" cols="30" id="content" name="content">{{content}}</textarea>
-                <br>
-            </div>
-            <div>
-                <input type="submit" value="Submit">
-            </div>
-        </form>
-    </div>
 </div>
 </body>
 <script type="text/javascript" src="public/javascripts/toggle.js"></script>
