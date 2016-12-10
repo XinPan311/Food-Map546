@@ -37,7 +37,9 @@ router.post('/', function (req, res, next) {
 
     });
 
-    res.render({ success: true, message: xss(request.body.description) });
+    if (req.body.description) {
+        res.json({ success: true, message: xss(req.body.description) });
+    }
 
 });
 

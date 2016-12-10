@@ -19,7 +19,7 @@ router.post('/login/login', passport.authenticate('local-login', {
     failureRedirect: '/auth/login/login', // redirect back to the signup page if there is an error
     failureFlash: true // allow flash messages
 }), (req, res) => {
-    res.render({ success: true, message: xss(request.body.description) });
+    res.json({ success: true, message: xss(request.body.description) });
 });
 
 router.post('/login/map', passport.authenticate('local-login', {
@@ -27,7 +27,7 @@ router.post('/login/map', passport.authenticate('local-login', {
     failureRedirect: '/auth/login/map', // redirect back to the signup page if there is an error
     failureFlash: true // allow flash messages
 }), (req, res) => {
-    res.render({ success: true, message: xss(request.body.description) });
+    res.json({ success: true, message: xss(request.body.description) });
 });
 
 router.post('/login/bbs', passport.authenticate('local-login', {
@@ -35,7 +35,7 @@ router.post('/login/bbs', passport.authenticate('local-login', {
     failureRedirect: '/auth/login/bbs', // redirect back to the signup page if there is an error
     failureFlash: true // allow flash messages
 }), (req, res) => {
-    res.render({ success: true, message: xss(request.body.description) });
+    res.json({ success: true, message: xss(request.body.description) });
 });
 
 router.post('/signup', passport.authenticate('local-signup', {
@@ -43,7 +43,7 @@ router.post('/signup', passport.authenticate('local-signup', {
     failureRedirect: '/auth/signup', // redirect back to the signup page if there is an error
     failureFlash: true // allow flash messages
 }), (req, res) => {
-    res.render({ success: true, message: xss(request.body.description) });
+    res.json({ success: true, message: xss(request.body.description) });
 });
 
 router.get('/logout', function (req, res) {
