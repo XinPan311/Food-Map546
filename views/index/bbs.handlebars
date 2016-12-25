@@ -19,7 +19,7 @@
         <div>
             <h2 id="white-color">Create new posts:</h2>
         </div>
-        <form class="form-group"  method="post">
+        <form id="bbs-form" class="form-group" >
             <div class="form-group">
                 <label for="title" >Title:</label><br>
                 <input type="text" class="form-group" id="title" name="title" placeholder="New Title" value="{{title}}">
@@ -46,7 +46,7 @@
             </tr>
             </thead>
 
-            <tbody>
+            <tbody id="new">
             {{#each BBSList}}
                 <tr>
                     <td>{{title}}</td>

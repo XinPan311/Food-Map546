@@ -31,15 +31,11 @@ router.post('/', function (req, res, next) {
         if (err)
             throw err;
 
-        console.log('BBS created!');
-
-        res.redirect('/bbs');
+        console.log(req.body);
 
     });
 
-    if (req.body.description) {
-        res.json({ success: true, message: xss(req.body.description) });
-    }
+    res.status(200).json({status:"ok", bbs: req.body});
 
 });
 
